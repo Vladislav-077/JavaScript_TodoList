@@ -1,10 +1,11 @@
 class Todo {
-  constructor(labelElement,complited) {
+  constructor(localStorageID,labelElement,complited) {
+    this.localStorageID = localStorageID;
     this.labelElement = labelElement
     this.complited = complited
   }
 
   getInformation() {
-    return this.labelElement + " " + this.complited;
+    return this.localStorageID + " " + this.labelElement + " " + this.complited;
   }
 }

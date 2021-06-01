@@ -21,7 +21,7 @@
         </div>
       </center>
       <hr>
-      <a href="#" class="button fillItemButton" id="fillTable" onclick="todoListFill()">заполнить таблицу данными</a>
+      <a href="#" class="button fillItemButton" id="fillTable" onclick="getTodoList()">заполнить таблицу данными</a>
     </div>
 
 
@@ -30,25 +30,31 @@
       <div class="todoList" id="todoList">
 
         <ol id="ol">
-          <div class="todoItem" id="todoItem-1">
+          <!-- Структура шаблона  -->
+          <!-- <div class="todoItem" id="todoItem-1">
             <li>Купить хлеб</li>
                 <input type="checkbox" class="custom-checkbox" id="checked-1" onclick="checkItem(id)">
                 <label for="checked-1"></label>
                 <div class="deleteItem" id="deleteItem-1" onclick="deleteItem(id)"></div>
-          </div>
+          </div> -->
         </ol>
 
 
 
       </div>
     </section>
-
-
       <!-- контроллер для заполнения данными таблицы -->
+    <script src="script/controller/controllerFillTable.js"></script>
     <script src="script/controller/controllerCreateTodo.js"></script>
     <script src="script/controller/controllerCheckBox.js"></script>
     <script src="script/controller/deleteElementByTable.js"></script>
-    <script src="script/controller/controllerGetAllObject.js"></script>
+    <script src="script/controller/controllerGetTodoList.js"></script>
+    <script src="script/controller/test.js"></script>
     <script src="script/model/todo.js"></script>
+
+    <script type="text/javascript">
+      var list = getTodoList();
+      fillTable(list);
+    </script>
   </body>
 </html>

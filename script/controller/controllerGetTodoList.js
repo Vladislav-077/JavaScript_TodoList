@@ -1,29 +1,31 @@
 //Реализуем функционал заполнение элементов, для начала проверяем LocalStorage если хранилище не заполненно заполняем.
 // Далее заполняем таблицу в соотвутсвии с LocalStorage
 
-function todoListFill() {
+function getTodoList() {
   if (getLengthLocalStorage() == 0) {
     todoListAddedObjectToLocalStorage();
+    return getLocalStorageTodo();
+
   }
   else {
-    getLocalStorageTodo();
+    return getLocalStorageTodo();
   }
 
 }
 
 function todoListAddedObjectToLocalStorage() {
-  console.log("Заполняем данными таблицу....");
+  console.log("Заполняем данными LocalStorage....");
 
   var list = [
-  new Todo("Купить хлеб",false),
-  new Todo("Купить молоко",false),
-  new Todo("Продать хлеб",false),
-  new Todo("Продать молоко",false),
-  new Todo("Купить диплом",false),
-  new Todo("Пропить диплом",false),
-  new Todo("Найти работу",false),
-  new Todo("Уволиться с работы",false),
-  new Todo("Жить на всю катушку!",false)
+  new Todo(0,"Купить хлеб",false),
+  new Todo(1,"Купить молоко",false),
+  new Todo(2,"Продать хлеб",false),
+  new Todo(3,"Продать молоко",false),
+  new Todo(4,"Купить диплом",false),
+  new Todo(5,"Пропить диплом",false),
+  new Todo(6,"Найти работу",false),
+  new Todo(7,"Уволиться с работы",false),
+  new Todo(8,"Жить на всю катушку!",false)
   ];
 
   // Сохраняем в LocalStorage
@@ -31,7 +33,7 @@ function todoListAddedObjectToLocalStorage() {
     console.log("Сохраняем в LocalStorage елемент : " + i + " : " +   list[i].getInformation());
     localStorage.setItem(i,JSON.stringify(list[i]));
   }
-  console.log("Таблица заполненна данными !!");
+  console.log("LocalStorage заполнен данными !!");
 }
 
 // Колличество объектов в хранилище
@@ -46,10 +48,11 @@ function getLocalStorageTodo() {
   var localStorageList = [];
 
   for (var i = 0; i < localStorageContent.length; i++) {
-    var todoJson = JSON.parse(localStorage.getItem(i));
-    var todoItem = new Todo(todoJson.labelElement,todoJson.complited);
-    console.log("");
-    localStorageList.push(todoItem);
+    var todoJson = JSON.parse(localStorage.getItem(localStorage.key(i)));
+    if (todoJson !== null) {
+      var todoItem = new Todo(localStorage.key(i),todoJson.labelElement,todoJson.complited);
+      localStorageList.push(todoItem);
+    }
   }
   console.log(localStorageList);
   console.log("Данные из LocalStorage полечены и записаны в массив!");
