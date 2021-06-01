@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+    <title>TODO</title>
+  </head>
+  <body>
+
+    <div class="header">
+      <center>
+        <h1>TODO</h1>
+          <div class="createItem">
+          <input type="text" id="inputCreateTodoItem" name="" value="">
+          <a href="#" onclick="crateTodoItem(document.getElementById('inputCreateTodoItem').value)" class="button createButton">создать</a>
+        </div>
+      </center>
+      <hr>
+      <a href="#" class="button fillItemButton" id="fillTable" onclick="todoListFill()">заполнить таблицу данными</a>
+    </div>
+
+
+    <!-- Тут сделаем список -->
+    <section>
+      <div class="todoList" id="todoList">
+
+        <ol id="ol">
+          <div class="todoItem" id="todoItem-1">
+            <li>Купить хлеб</li>
+                <input type="checkbox" class="custom-checkbox" id="checked-1" onclick="checkItem(id)">
+                <label for="checked-1"></label>
+                <div class="deleteItem" id="deleteItem-1" onclick="deleteItem(id)"></div>
+          </div>
+        </ol>
+
+
+
+      </div>
+    </section>
+
+
+      <!-- контроллер для заполнения данными таблицы -->
+    <script src="script/controller/controllerCreateTodo.js"></script>
+    <script src="script/controller/controllerCheckBox.js"></script>
+    <script src="script/controller/deleteElementByTable.js"></script>
+    <script src="script/controller/controllerGetAllObject.js"></script>
+    <script src="script/model/todo.js"></script>
+  </body>
+</html>
