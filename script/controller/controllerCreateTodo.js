@@ -10,6 +10,9 @@ function crateTodoItem(labelElement) {
     if (localStorage.getItem(index) !== null) {
       console.log("Элемент успешно добавлен в хранилище !");
       swal("Элемент успешно добавлен!", "", "success");
+
+      var list = getTodoList(false);
+      fillTable(list);
     }
     else {
       console.log("Ошибка элемент не добавлен в хранилище !!");
