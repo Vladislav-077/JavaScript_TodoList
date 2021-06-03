@@ -1,0 +1,19 @@
+#todoList::-webkit-scrollbar {
+  width: 10px;
+}
+
+#todoList::-webkit-scrollbar-track {
+  -webkit-box-shadow: -6px 5px 5px -5px rgb(34 60 80 / 66%) inset;
+  background-color: #dfdbbd;
+}
+
+#todoList::-webkit-scrollbar-thumb {
+  background-color: #03bd8e;
+  background-image: -webkit-linear-gradient(45deg,rgba(255, 255, 255, .25) 25%,
+                    transparent 25%,
+                    transparent 50%,
+                    rgba(255, 255, 255, .25) 50%,
+                    rgba(255, 255, 255, .25) 75%,
+                    transparent 75%,
+                    transparent);
+}

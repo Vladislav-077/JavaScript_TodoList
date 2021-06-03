@@ -41,7 +41,16 @@ function fillTodoItemData(element,countElement) {
       var liElement = element[i].labelElement;
       if (liElement !== null) {
         var innerHTMLli = "<li>"+ liElement +"</li>";
-        var inputHTML =  "<input type=\"checkbox\" class=\"custom-checkbox\"" + "id=\"checked-" + id + "\"" + "onclick=\"checkItem(id)\">";
+
+        // Проверяем какое состояние у checkbox
+        var checked = element[i].complited
+        if (checked) {
+          var inputHTML =  "<input type=\"checkbox\" class=\"custom-checkbox\"" + "id=\"checked-" + id + "\"" + "onclick=\"checkItem(id)\" checked >";
+          htmlDocument.classList.toggle("todoItemComplite");
+        }
+        else {
+          var inputHTML =  "<input type=\"checkbox\" class=\"custom-checkbox\"" + "id=\"checked-" + id + "\"" + "onclick=\"checkItem(id)\">";
+        }
         var checkboxHTML = "<label for=\"checked-" + id + "\"" + "></label>";
         var deleteHTML = "<div class=\"deleteItem\"" + "id=\"deleteItem-" + id + "\"" + "onclick=\"deleteItem(id)\"" + "></div>";
 

@@ -9,8 +9,11 @@ function deleteItem(idElement) {
   elementDiv.remove();
   console.log("Компонент удален из списка!");
 
+  // Сохряняем компонент
+  var saveElement = saveElenentTodoById(id);
+
   deleteTodoById(id);
-  checkDeleteElement(id);
+  checkDeleteElement(id,saveElement);
 
   // Проверяю сколько осталось еще елементов.
   let all = document.getElementsByClassName("todoItem");
@@ -24,9 +27,16 @@ function deleteTodoById(id) {
   localStorage.removeItem(id);
 }
 
-function checkDeleteElement(id) {
+function saveElenentTodoById(id) {
+  console.log("Элемент сохранен");
+  var saveElement = JSON.parse(localStorage.getItem(id));
+  console.log(saveElement);
+  return saveElement;
+}
+
+function checkDeleteElement(id,saveElement) {
   if (localStorage.getItem(id) === null) {
-    swal("Элемент успешно удален!", "", "success");
+    swal("Элемент \""+ saveElement.labelElement +"\" успешно удален!", "", "success");
   }
   else {
     swal("Ошибка удаления елемента!", "", "error");

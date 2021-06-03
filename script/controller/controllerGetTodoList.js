@@ -1,13 +1,21 @@
 //Реализуем функционал заполнение элементов, для начала проверяем LocalStorage если хранилище не заполненно заполняем.
 // Далее заполняем таблицу в соотвутсвии с LocalStorage
 
-function getTodoList() {
+function getTodoList(flag) {
   if (getLengthLocalStorage() == 0) {
     todoListAddedObjectToLocalStorage();
     return getLocalStorageTodo();
-
   }
   else {
+    // Предупреждение
+    if (flag) {
+      swal({
+        title : "Список нельзя заполнить данным !",
+        text: "Список нельзя заполнить данными когда в нем больше 1 елемента, для заполнения списка удалите все елементы",
+        icon: "warning",
+      });
+    }
+
     return getLocalStorageTodo();
   }
 
