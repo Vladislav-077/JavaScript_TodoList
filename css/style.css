@@ -45,7 +45,7 @@ ol {
   justify-content: center;
   align-items: center;
   flex-flow: wrap;
-  height: inherit;
+  height: -webkit-fill-available;
 }
 
 input[type=text] {
@@ -179,7 +179,7 @@ input[type=text] {
   box-shadow: 4px 9px 16px 3px #6d6c67;
   width: fit-content;
   padding: 10px 30px 15px 2em;
-  margin: 10px 50px;
+  margin: 15px 20px;
 }
 .todoItemComplite {
   text-decoration: line-through;

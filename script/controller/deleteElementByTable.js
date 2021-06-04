@@ -19,7 +19,9 @@ function deleteItem(idElement) {
   let all = document.getElementsByClassName("todoItem");
   if (all.length == 0) {
     console.log("Список дел пуск выводим сообщение в UI!");
-    document.getElementById("todoList").innerHTML = "<h1>Список дел пуст!</h1>";
+    var li = document.getElementById("ol");
+
+    document.getElementById("todoList").innerHTML =  li.outerHTML + "<h1 id=\"emptyTodoList\">Список дел пуст!</h1>";
   }
 }
 

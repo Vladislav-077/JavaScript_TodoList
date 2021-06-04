@@ -8,6 +8,12 @@ function fillTable(element) {
   // 1. Узнаем колличество елементов.
   var countElement = element.length;
 
+  //Удаляем фразу Список дел пуст!
+  var emptyTodoList = document.getElementById("emptyTodoList");
+  if (emptyTodoList !== null) {
+    emptyTodoList.remove();
+  }
+
 
 // Делаем блоки
   createTodoItem(element,countElement);
